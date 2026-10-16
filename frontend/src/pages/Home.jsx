@@ -18,6 +18,7 @@ const GALLERY = [
 ];
 
 const GENERAL_ORDER = '¡Hola Gomibox! Quiero armar mi caja de gomitas 🍬';
+const POCHOCLOS_ORDER = '¡Hola Gomibox! Quiero pedir los pochoclos de colores 🍿';
 
 const BEARS = [
   { color: '#ff8fc0', delay: '' },
@@ -184,6 +185,31 @@ export default function Home() {
               </figcaption>
             </figure>
           ))}
+        </div>
+      </section>
+
+      {/* Novedad: pochoclos */}
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <div className="grid items-center gap-8 rounded-[2.5rem] border-2 border-border bg-butter/40 p-6 md:grid-cols-[minmax(0,320px)_1fr] md:p-10">
+          <img
+            src="/brand/poster-pochoclos.jpeg"
+            alt={t('home.newsAlt')}
+            width="900"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+            className="sticker mx-auto w-full max-w-[300px] -rotate-1 rounded-3xl"
+          />
+          <div>
+            <span className="sticker inline-block rounded-full bg-card px-3 py-1 font-display text-xs font-extrabold uppercase tracking-wide">
+              {t('home.newsBadge')}
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-extrabold md:text-4xl">{t('home.newsTitle')}</h2>
+            <p className="mt-2 max-w-prose text-muted-foreground">{t('home.newsSubtitle')}</p>
+            <a href={whatsappLink(POCHOCLOS_ORDER)} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block">
+              <Button variant="whatsapp" size="lg" className="rounded-full">{t('home.orderWhatsApp')}</Button>
+            </a>
+          </div>
         </div>
       </section>
 

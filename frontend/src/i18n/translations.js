@@ -27,6 +27,12 @@ export const translations = {
       gallerySubtitle: 'Cajas, bandejas y combos listos para regalar.',
       videoTitle: 'Así se arma tu Gomibox',
       videoSubtitle: 'Un vistazo rápido a nuestras gomitas.',
+      newsBadge: 'Nuevo',
+      newsTitle: 'Pochoclos de colores',
+      newsSubtitle:
+        'Se suma a la familia: crujientes, saborizados y bien coloridos. Frutilla, chocolate, vanilla, limón y mix.',
+      newsAlt:
+        'Flyer de Gomibox: «Pochoclos de colores y saborizados», el producto nuevo que se suma a la línea.',
       featuredTitle: 'Las más pedidas',
       featuredSubtitle: 'Una probadita nomás. Entrá al catálogo para verlas todas.',
       viewCatalog: 'Ver todo el catálogo',
@@ -306,6 +312,11 @@ export const translations = {
       gallerySubtitle: 'Boxes, trays and combos ready to gift.',
       videoTitle: 'How your Gomibox is made',
       videoSubtitle: 'A quick look at our gummies.',
+      newsBadge: 'New',
+      newsTitle: 'Colourful popcorn',
+      newsSubtitle:
+        'Joining the family: crunchy, flavoured and super colourful. Strawberry, chocolate, vanilla, lemon and mix.',
+      newsAlt: 'Gomibox flyer: “Colourful flavoured popcorn”, the new product joining the line-up.',
       featuredTitle: 'Most popular',
       featuredSubtitle: 'Just a taste. Head to the catalog to see them all.',
       viewCatalog: 'See the full catalog',
