@@ -4,6 +4,7 @@ const variants = {
   primary: 'bg-primary text-white hover:bg-primary-dark',
   secondary: 'bg-muted text-foreground hover:bg-border',
   outline: 'border border-border text-foreground hover:bg-muted',
+  whatsapp: 'bg-whatsapp text-white hover:bg-whatsapp-dark',
   destructive: 'bg-destructive text-white hover:bg-red-600',
   ghost: 'text-foreground hover:bg-muted',
 };

@@ -68,11 +68,11 @@ gomibox-v2/
 ### Backend (.env)
 
 ```
-PORT=5000
-MONGO_URI=mongodb://admin:admin123@localhost:27017/gomibox?authSource=admin
-JWT_SECRET=your_secret_here
+PORT=5010
+MONGO_URI=mongodb://<usuario>:<password>@127.0.0.1:27018/gomibox?authSource=admin
+JWT_SECRET=<generá uno con: openssl rand -base64 48>
 JWT_EXPIRES_IN=7d
-CORS_ORIGIN=http://localhost:5173
+CORS_ORIGIN=http://localhost:5173,http://localhost:5174
 ```
 
 ## API Endpoints

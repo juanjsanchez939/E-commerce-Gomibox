@@ -4,7 +4,8 @@ import Footer from '../components/Footer.jsx';
 
 export default function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="relative flex min-h-screen flex-col">
+      <div aria-hidden="true" className="gb-backdrop pointer-events-none absolute inset-0 -z-10" />
       <Navbar />
       <main className="flex-1">
         <Outlet />

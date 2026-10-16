@@ -1,14 +1,14 @@
 services:
   mongodb:
     image: mongo:7
-    container_name: gomibox-mongodb
+    container_name: ${MONGO_CONTAINER_NAME:-gomibox-mongodb}
     restart: unless-stopped
     ports:
-      - '27018:27017'
+      - '${MONGO_PORT:-27018}:27017'
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: admin123
-      MONGO_INITDB_DATABASE: gomibox
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?define MONGO_ROOT_PASSWORD en tu .env}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-gomibox}
     volumes:
       - mongo-data:/data/db
 

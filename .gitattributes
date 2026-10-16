@@ -1,0 +1,14 @@
+# Normaliza los finales de línea en todo el repo (un solo estilo, sin ruido en los diffs)
+* text=auto eol=lf
+
+# Binarios: nunca normalizar
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.svg text
+*.mp4 binary
+*.woff binary
+*.woff2 binary

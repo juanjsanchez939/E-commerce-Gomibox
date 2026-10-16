@@ -1,34 +1,301 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #16a34a;
-  --color-primary-light: #22c55e;
-  --color-primary-dark: #15803d;
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
-  --color-muted: #f5f5f5;
-  --color-muted-foreground: #737373;
-  --color-border: #e5e5e5;
+  --color-primary: #d81b60;
+  --color-primary-light: #ffb3d1;
+  --color-primary-dark: #a01049;
+  --color-background: #fff7fb;
+  --color-foreground: #3d2b39;
+  --color-muted: #fbeef6;
+  --color-muted-foreground: #6d5162;
+  --color-border: #f6dbe9;
   --color-card: #ffffff;
-  --color-accent: #f0fdf4;
+  --color-accent: #f3e8ff;
   --color-destructive: #ef4444;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-berry: #ff8fc0;
+  --color-mint: #a8e6cf;
+  --color-lilac: #c7b8ea;
+  --color-butter: #ffe5a0;
+  --color-cotton: #a8d8ea;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1fb457;
+
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Baloo 2', ui-sans-serif, system-ui, sans-serif;
 }
 
 .dark {
-  --color-background: #0a0a0a;
-  --color-foreground: #fafafa;
-  --color-muted: #1a1a1a;
-  --color-muted-foreground: #a3a3a3;
-  --color-border: #262626;
-  --color-card: #171717;
-  --color-accent: #052e16;
+  --color-background: #1b1420;
+  --color-foreground: #f7edf4;
+  --color-muted: #2a2030;
+  --color-muted-foreground: #bda9ba;
+  --color-border: #3a2b3c;
+  --color-card: #241b28;
+  --color-accent: #2e2440;
 }
 
 body {
   background-color: var(--color-background);
+  /* Confeti: dos tramas de puntos desfasadas, en dos tonos de la paleta */
+  background-image:
+    radial-gradient(rgba(216, 27, 96, 0.07) 1.5px, transparent 1.6px),
+    radial-gradient(rgba(199, 184, 234, 0.1) 1.5px, transparent 1.6px);
+  background-position: 0 0, 11px 11px;
+  background-size: 22px 22px, 22px 22px;
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+/* Manchas pastel del fondo (capa decorativa: sólo pintura, sin JS y sin repintar al scroll) */
+.gb-backdrop {
+  background-image:
+    radial-gradient(46rem 34rem at 88% 3%, rgba(199, 184, 234, 0.55), transparent 62%),
+    radial-gradient(40rem 30rem at 4% 9%, rgba(168, 230, 207, 0.55), transparent 62%),
+    radial-gradient(38rem 28rem at 98% 30%, rgba(168, 216, 234, 0.5), transparent 64%),
+    radial-gradient(42rem 32rem at 0% 47%, rgba(255, 229, 160, 0.6), transparent 64%),
+    radial-gradient(44rem 32rem at 94% 66%, rgba(255, 143, 192, 0.45), transparent 64%),
+    radial-gradient(38rem 30rem at 6% 84%, rgba(199, 184, 234, 0.5), transparent 64%),
+    radial-gradient(44rem 32rem at 72% 99%, rgba(168, 230, 207, 0.5), transparent 64%);
+  background-repeat: no-repeat;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(rgba(255, 179, 209, 0.08) 1.5px, transparent 1.6px),
+    radial-gradient(rgba(199, 184, 234, 0.08) 1.5px, transparent 1.6px);
+}
+
+.dark .gb-backdrop {
+  background-image:
+    radial-gradient(46rem 34rem at 88% 3%, rgba(199, 184, 234, 0.22), transparent 62%),
+    radial-gradient(40rem 30rem at 4% 9%, rgba(168, 230, 207, 0.2), transparent 62%),
+    radial-gradient(38rem 28rem at 98% 30%, rgba(168, 216, 234, 0.18), transparent 64%),
+    radial-gradient(42rem 32rem at 0% 47%, rgba(255, 229, 160, 0.16), transparent 64%),
+    radial-gradient(44rem 32rem at 94% 66%, rgba(216, 27, 96, 0.28), transparent 64%),
+    radial-gradient(38rem 30rem at 6% 84%, rgba(199, 184, 234, 0.2), transparent 64%),
+    radial-gradient(44rem 32rem at 72% 99%, rgba(168, 230, 207, 0.18), transparent 64%);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* ---- Toque de diversión ---- */
+@keyframes gb-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes gb-wiggle {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+@keyframes gb-pop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes gb-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes gb-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-floaty {
+  animation: gb-float 4.5s ease-in-out infinite;
+}
+.animate-wiggle {
+  animation: gb-wiggle 2.6s ease-in-out infinite;
+}
+.animate-pop {
+  animation: gb-pop 0.35s ease-out both;
+}
+.animate-marquee {
+  animation: gb-marquee 26s linear infinite;
+}
+.animate-spin-slow {
+  animation: gb-spin-slow 16s linear infinite;
+}
+.delay-1 {
+  animation-delay: 0.5s;
+}
+.delay-2 {
+  animation-delay: 1s;
+}
+.delay-3 {
+  animation-delay: 1.5s;
+}
+
+/* Efectos livianos (solo transform/opacity) */
+@keyframes gb-jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.07, 0.93);
+  }
+  60% {
+    transform: scale(0.93, 1.07);
+  }
+}
+.animate-jelly {
+  transform-origin: 50% 85%;
+  animation: gb-jelly 3s ease-in-out infinite;
+}
+
+@keyframes gb-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+.animate-twinkle {
+  animation: gb-twinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes gb-drift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(5deg);
+  }
+}
+.animate-drift {
+  animation: gb-drift 6.5s ease-in-out infinite;
+}
+
+/* Globos: sube y se mece */
+@keyframes gb-balloon {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate3d(6px, -20px, 0) rotate(4deg);
+  }
+}
+.animate-balloon {
+  animation: gb-balloon 7s ease-in-out infinite;
+}
+
+/* Entrada con rebote suave (claymorphism: cubic-bezier 0.34, 1.56) */
+@keyframes gb-pop-bounce {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.animate-pop-bounce {
+  animation: gb-pop-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-floaty,
+  .animate-wiggle,
+  .animate-marquee,
+  .animate-spin-slow,
+  .animate-jelly,
+  .animate-twinkle,
+  .animate-drift,
+  .animate-balloon,
+  .animate-pop-bounce {
+    animation: none;
+  }
+}
+
+/* Marco tipo calco/sticker para fotos y productos */
+.sticker {
+  border: 4px solid #fff;
+  box-shadow: 0 14px 34px -14px rgba(232, 85, 143, 0.55);
+}
+
+/* Texto con degradé golosina */
+.text-candy {
+  background: linear-gradient(95deg, #e8558f, #ff8fc0, #c7b8ea, #a8d8ea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Wordmark "Gomibox": letras candy 3D en arco ---- */
+.gb-wordmark {
+  display: inline-flex;
+  align-items: flex-end;
+  line-height: 0.9;
+  user-select: none;
+}
+
+.gb-letter {
+  display: inline-block;
+  color: var(--c);
+  -webkit-text-stroke: 0.055em #fff;
+  paint-order: stroke fill;
+  transform: translateY(var(--y)) rotate(var(--r));
+  text-shadow:
+    0.035em 0.035em 0 var(--d),
+    0.07em 0.07em 0 var(--d),
+    0.105em 0.105em 0 var(--d),
+    0.15em 0.17em 0.14em rgba(61, 43, 57, 0.35);
+}
+
+@keyframes gb-letter-bounce {
+  0%,
+  100% {
+    transform: translateY(var(--y)) rotate(var(--r));
+  }
+  50% {
+    transform: translateY(calc(var(--y) - 0.09em)) rotate(var(--r));
+  }
+}
+
+.gb-wordmark--bounce .gb-letter {
+  animation: gb-letter-bounce 1.9s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.09s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gb-wordmark--bounce .gb-letter {
+    animation: none;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -38,6 +305,6 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #525252;
+  background: var(--color-primary-light);
   border-radius: 3px;
 }
