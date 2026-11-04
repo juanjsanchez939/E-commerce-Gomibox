@@ -4,3 +4,7 @@ build/
 .env
 *.log
 .DS_Store
+
+# .NET build artifacts
+bin/
+obj/

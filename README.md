@@ -1,11 +1,11 @@
 # Gomibox E-Commerce
 
-Full-stack e-commerce application built with React 19, Node.js, Express, and MongoDB.
+Full-stack e-commerce application built with React 19, ASP.NET Core .NET 10, and MongoDB.
 
 ## Tech Stack
 
 **Frontend:** React 19, Vite, React Router, Axios, Context API, Tailwind CSS
-**Backend:** Node.js, Express, JWT, bcrypt, Zod, Mongoose
+**Backend:** ASP.NET Core .NET 10 Minimal API, JWT, BCrypt, MongoDB.Driver
 **Database:** MongoDB (Docker)
 
 ## Quick Start
@@ -16,21 +16,15 @@ Full-stack e-commerce application built with React 19, Node.js, Express, and Mon
 docker compose up -d
 ```
 
-### 2. Install Backend Dependencies & Seed Data
+### 2. Configure and run the .NET 10 backend
 
 ```bash
 cd backend
-npm install
-npm run seed
+dotnet restore
+dotnet run
 ```
 
-### 3. Start Backend
-
-```bash
-npm run dev
-```
-
-### 4. Install & Start Frontend (new terminal)
+### 3. Install & Start Frontend (new terminal)
 
 ```bash
 cd frontend
@@ -52,20 +46,16 @@ gomibox-v2/
 │       ├── services/      # Axios API calls
 │       ├── routes/        # React Router config
 │       └── utils/         # Helpers
-├── backend/           # Express REST API
-│   └── src/
-│       ├── controllers/   # Request handlers
-│       ├── middleware/     # Auth, validation, error handling
-│       ├── models/        # Mongoose schemas
-│       ├── routes/        # API routes
-│       ├── services/      # Business logic
-│       └── validations/   # Zod schemas
+├── backend/           # ASP.NET Core .NET 10 REST API
+│   ├── Program.cs        # API endpoints, auth and business logic
+│   ├── Models.cs         # MongoDB document and request models
+│   └── Gomibox.Api.csproj
 └── docker-compose.yml
 ```
 
 ## Environment Variables
 
-### Backend (.env)
+### Backend (.env or environment variables)
 
 ```
 PORT=5010
